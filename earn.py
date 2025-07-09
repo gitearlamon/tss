@@ -101,18 +101,16 @@ def run_earn_parallel():
         selected_new = random.sample(new_links, 2)
         selected_links = selected_old + selected_new
 
-        print(f"Selected {len(selected_links)} links for processing:")
+        print(f"Selected {len(selected_links)} links for earnvids:")
         for link in selected_links:
             print(f" - {link}")
-
-        # Tiếp tục xử lý selected_links với multiprocessing hoặc các bước khác
-
+        return selected_links
     except Exception as e:
         print(f"Failed to load link list: {e}")
         return
 
     # num_processes = 4
-    # selected_links = random.sample(link_list, num_processes)
+    selected_links = run_earn_parallel() 
 
     processes = []
     for link in selected_links:
